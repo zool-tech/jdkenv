@@ -21,7 +21,7 @@ RUN set -eux;\
 # busybox soft link
 	for cmdStr in free ip less nc netstat nslookup ping ps top tracerout vi watch wget;do ln -s busybox /bin/${cmdStr};done;\
 # download openjdk
-	wget -O openjdk.tgz "${JAVA_BASE_URL}${upstreamArch}_linux_${JAVA_URL_VERSION}.tar.gz" --progress=dot:giga;\
+	wget -O openjdk.tgz "${JAVA_BASE_URL}${upstreamArch}_linux_${JAVA_URL_VERSION}.tar.gz" -q;\
 	mkdir -p "$JAVA_HOME";\
 	tar --extract --file openjdk.tgz --directory "$JAVA_HOME" --strip-components 1 --no-same-owner;\
 	rm openjdk.tgz* && rm "$JAVA_HOME/src.zip" && rm -rf "$JAVA_HOME/demo" && rm -rf "$JAVA_HOME/sample";\
