@@ -1,2 +1,2 @@
-# javadev
-openjdk, git, maven
+# jdkenv
+openjdk
