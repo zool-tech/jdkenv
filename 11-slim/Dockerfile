@@ -3,12 +3,12 @@ FROM debian:buster-slim
 MAINTAINER zooltech@qq.com
 
 ENV LANG C.UTF-8
-ENV JAVA_HOME /usr/local/openjdk-8
+ENV JAVA_HOME /usr/local/openjdk-11
 ENV PATH $JAVA_HOME/bin:$PATH
 
 # java install params
-ARG JAVA_URL_VERSION=8u232b09
-ARG JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u232-b09/OpenJDK8U-jdk_
+ARG JAVA_URL_VERSION=11.0.5_10
+ARG JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk11-upstream-binaries/releases/download/jdk-11.0.5%2B10/OpenJDK11U-jdk_
 
 RUN set -eux;\
 	dpkgArch="$(dpkg --print-architecture)";\
@@ -45,3 +45,4 @@ RUN set -eux;\
 	echo "alias ls='ls --color=auto'\nalias ll='ls -lA'" > /root/.bashrc;\
 # basic smoke test
 	java -version
+CMD ["jshell"]
